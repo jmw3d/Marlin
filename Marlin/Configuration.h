@@ -26,7 +26,7 @@
 // #define V6_330_TITAN_NO_TMC 1
 // #define V6_330_NO_TITAN_TMC 1
 // #define V6_330_NO_TITAN_NO_TMC 1
-// #define V6_400_TITAN_TMC 1
+#define V6_400_TITAN_TMC 1
 // #define V6_400_NO_TITAN_TMC 1
 // #define V6_500_TITAN_TMC 1
 
@@ -57,7 +57,7 @@
 
 // #define LVGL_UI
 // #define CLASSIC_UI
-// #define COLOR_UI
+#define COLOR_UI
 
 #if V6_330_TITAN_TMC
   #define MOTHERBOARD BOARD_CHITU3D_V6
@@ -893,7 +893,7 @@
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 200
+#define EXTRUDE_MAXLENGTH 1000
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -1084,7 +1084,7 @@
 #if WITH_TMC && WITH_BMG
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 830 }
 #elif WITH_TMC && WITH_TITAN
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 764 }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 777 }
 #elif WITH_TMC && !WITH_TITAN && !WITH_BMG
   #define DEFAULT_AXIS_STEPS_PER_UNIT   { 160, 160, 800, 186 }
 #elif WITH_TITAN && !WITH_TMC
@@ -1110,11 +1110,11 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 50 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
-  #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 10, 50 } // ...or, set your own edit limits
+  #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 10, 100 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -1191,7 +1191,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-// #define S_CURVE_ACCELERATION
+#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
